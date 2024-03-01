@@ -1,3 +1,15 @@
+#Q1
+
+a = 10
+a = a + 2
+print(a*2)
+a = 19
+print(a+3)
+a = 19 // 2
+
+
+
+
 #Q3
 import datetime
 
@@ -118,3 +130,37 @@ def days_since_birthday(birthday):
 # Example usage
 birthday = "21-06-2004"
 print("Days since birthday:", days_since_birthday(birthday))
+
+
+
+#Q10
+
+def count_pattern_occurrences(text):
+    # we input the function
+    count = 0
+
+    # The length of the text to avoid re-computing it
+    text_length = len(text)
+
+    # The length of the pattern end ("jeb") to use for substring comparison
+    pattern_end_length = len("jeb")
+
+    # Loop through each character in the text
+    for i in range(text_length):
+        # Check if the current character is 'C'
+        if text[i] == 'C':
+            # Loop through the remaining text to find "jeb"
+            for j in range(i, text_length):
+                # If we find a substring that ends with "jeb", increase the count
+                if text[j:j + pattern_end_length] == "jeb":
+                    count += 1
+                    break
+
+    #to know that you have how many occurences
+    return count
+
+
+#try now
+text = "Here is a Cexamplejeb and here is another Cnotjeb and one more Ctestjeb."
+matches = count_pattern_occurrences(text)
+print(f"Number of matches: {matches}")
